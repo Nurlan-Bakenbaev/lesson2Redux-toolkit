@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { selectAllposts } from "./postsSlice";
-
+import PostedDate from "./PostedDate";
 const PostsList = () => {
   const posts = useSelector(selectAllposts);
   return (
@@ -16,12 +16,12 @@ const PostsList = () => {
                 width: "550px",
                 padding: "10px",
                 display: "flex",
-                
+                flexDirection: "column",
               }}
             >
               <p>{post.content} </p>
               <span>by:{post.userName || "Author is unknown"}</span>
-              <span>time:{post.date}</span>
+              <PostedDate date={post.date} />
             </div>
           </div>
         ))}

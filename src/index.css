@@ -2,6 +2,8 @@ body {
   background-color: #242424;
   color: white;
 }
-input,textarea {
+input,
+textarea {
   background-color: gray;
+  color: lightblue;
 }
