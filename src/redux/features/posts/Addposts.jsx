@@ -2,6 +2,7 @@ import { nanoid } from "@reduxjs/toolkit";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { postAdded } from "./postsSlice";
+
 const AddPosts = () => {
   const [post, setPost] = useState({
     title: "",
@@ -20,13 +21,28 @@ const AddPosts = () => {
   const dispatch = useDispatch();
   const onSavePostClicked = () => {
     if ((post.title && post.content) || post.userName) {
-      dispatch(postAdded({ id: nanoid(), ...post }));
+      const postDate = new Date().toISOString();
+      const newPost = {
+        id: nanoid,
+        title: post.title,
+        content: post.content,
+        userName: post.userName,
+        date: postDate,
+      };
+      dispatch(postAdded(newPost));
       setPost({ title: "", content: "", userName: "" });
     }
   };
 
   return (
-    <form style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+    <form
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "10px",
+        width: "450px",
+      }}
+    >
       <label htmlFor="text-input">Text Input:</label>
       <input
         type="text"
@@ -59,6 +75,7 @@ const AddPosts = () => {
       </select>
 
       <button
+        style={{ height: "35px", backgroundColor: "orange" }}
         disabled={!post.userName}
         type="button"
         onClick={onSavePostClicked}
