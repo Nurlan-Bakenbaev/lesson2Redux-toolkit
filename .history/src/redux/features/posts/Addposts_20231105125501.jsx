@@ -37,21 +37,19 @@ const AddPosts = () => {
       />
 
       <label htmlFor="textarea-input">Textarea:</label>
-      <textarea
+      <
         id="textarea-input"
         rows="4"
         cols="50"
         value={post.content}
         name="content"
-        onChange={handleInputChange}
-      ></textarea>
+        onChange={handleInputChange}/>
       <label htmlFor="user">Users: </label>
       <select
         onChange={handleInputChange}
         value={post.userName}
         name="userName"
-        id="user"
-      >
+        id="user">
         <option value="Zero">Choose user</option>
         {users.map((user) => (
           <option key={user.id}>{user.name}</option>
@@ -61,8 +59,7 @@ const AddPosts = () => {
       <button
         disabled={!post.userName}
         type="button"
-        onClick={onSavePostClicked}
-      >
+        onClick={onSavePostClicked}>
         Add Post
       </button>
     </form>

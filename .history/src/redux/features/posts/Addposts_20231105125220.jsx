@@ -59,10 +59,9 @@ const AddPosts = () => {
       </select>
 
       <button
-        disabled={!post.userName}
+        disabled={post.userName}
         type="button"
-        onClick={onSavePostClicked}
-      >
+        onClick={onSavePostClicked}>
         Add Post
       </button>
     </form>
